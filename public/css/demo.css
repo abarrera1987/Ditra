@@ -55,11 +55,12 @@ body{
 	overflow-y: scroll;
 }
 .n{
-	color: #000000;
+	color: #FFF;
 	text-decoration: none;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.3);
 }
 .n:hover{
-	color: #035a03;
+	color: #747474;
 }
 .container{
 	width: 100%;

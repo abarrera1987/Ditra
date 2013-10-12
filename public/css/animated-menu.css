@@ -1,6 +1,18 @@
 body{
 	font-family:"Lucida Grande", arial, sans-serif;
-	background:#F3F3F3;
+	background-image: linear-gradient(bottom, rgb(137,192,250) 0%, rgb(255,255,255) 75%);
+	background-image: -o-linear-gradient(bottom, rgb(137,192,250) 0%, rgb(255,255,255) 75%);
+	background-image: -moz-linear-gradient(bottom, rgb(137,192,250) 0%, rgb(255,255,255) 75%);
+	background-image: -webkit-linear-gradient(bottom, rgb(137,192,250) 0%, rgb(255,255,255) 75%);
+	background-image: -ms-linear-gradient(bottom, rgb(137,192,250) 0%, rgb(255,255,255) 75%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(137,192,250)),
+		color-stop(0.75, rgb(255,255,255))
+	);
 }
 
 ul{
@@ -41,8 +53,23 @@ p{
 	}
 
 /*Menu Color Classes*/
-.green{background:#6AA63B url('../img/green-item-bg.jpg') top left no-repeat;}
-.yellow{background:#F60 url('../img/yellow-item-bg.jpg') top left no-repeat;}
-.red{background:#D52100 url('../img/red-item-bg.jpg') top left no-repeat;}
-.purple{background:#5122B4 url('../img/purple-item-bg.jpg') top left no-repeat;}
-.blue{background:#0292C0 url('../img/blue-item-bg.jpg') top left no-repeat;}
+
+
+.green, .yellow, .red, .purple, .blue{
+	border-radius: .2em;
+	margin: .1em;
+	opacity: 3em;
+	background-image: linear-gradient(bottom, rgb(26,14,138) 0%, rgb(99,133,255) 75%);
+	background-image: -o-linear-gradient(bottom, rgb(26,14,138) 0%, rgb(99,133,255) 75%);
+	background-image: -moz-linear-gradient(bottom, rgb(26,14,138) 0%, rgb(99,133,255) 75%);
+	background-image: -webkit-linear-gradient(bottom, rgb(26,14,138) 0%, rgb(99,133,255) 75%);
+	background-image: -ms-linear-gradient(bottom, rgb(26,14,138) 0%, rgb(99,133,255) 75%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(26,14,138)),
+		color-stop(0.75, rgb(99,133,255))
+	);
+}

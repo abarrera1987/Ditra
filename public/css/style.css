@@ -1,7 +1,8 @@
 .dg-container{
-	width: 90%;
-	height: 450px;
-	margin: 4em;
+	
+	height: 435px;
+	margin: 2em;
+	z-index: -1;
 	position: relative;
 }
 .dg-wrapper{

@@ -12,10 +12,24 @@ header section footer{
 	display: block;
 	margin: 5em;
 }
+header{
+	background-image: linear-gradient(bottom, rgb(26,14,138) 0%, rgb(99,133,255) 75%);
+	background-image: -o-linear-gradient(bottom, rgb(26,14,138) 0%, rgb(99,133,255) 75%);
+	background-image: -moz-linear-gradient(bottom, rgb(26,14,138) 0%, rgb(99,133,255) 75%);
+	background-image: -webkit-linear-gradient(bottom, rgb(26,14,138) 0%, rgb(99,133,255) 75%);
+	background-image: -ms-linear-gradient(bottom, rgb(26,14,138) 0%, rgb(99,133,255) 75%);
 
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(26,14,138)),
+		color-stop(0.75, rgb(99,133,255))
+	);
+}
 header, .logos, .nav{
 
-	background: #00024f;
+	
 	display: inline-block;
 	max-width: 100%;
 	vertical-align: middle;	
@@ -23,18 +37,21 @@ header, .logos, .nav{
 }
 header img{	
 	padding-left: 1em;
-	width: 35%;
+	width: 31%;
 
 }
+
 .nav{
 
 	text-align: center;
-	height: 100px;	
-	padding-top: 2em;
+	height: 100px;
+	z-index: 999; 
+	
 }
 footer{
 	color: #E1380E;
 	font-family: 'Indie Flower', cursive;
+	padding: .5em;
 	text-align: center;
 }
 footer .empresa{

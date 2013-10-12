@@ -1,0 +1,59 @@
+header
+	h1.logos
+		a.logobanco(href='/')
+			img.logo(src='img/prueba2.png') 
+	nav.nav
+		ul
+			li(class='green')
+				p.opcion
+					a.n(href="#") Usuario
+				p(class='subtext')
+					a.n#various1(href="#inline1") Login
+						div(style="display: none;")
+							div#inline1
+								div#la
+									form(method="post",action="/registro/add")
+										labe#nomb(for="nombre") Usuario 		
+										input#nomb(type="text",name="nombre",required,autofocus)
+										br
+										labe#cedu(for="Cedula") Contraseña     
+										input#cedu(type="password",name="cedula",required)
+										br
+										input#btnIni(type="submit",value="Iniciar")
+			li.yellow
+				p.opcion
+					a.n(href='#') Transacciones
+				p.subtext 
+					a.n(href='/') Consignación
+					br/
+					a.n(href='/') Retiro
+					br/
+					a.n(href='/') Transferencia
+			
+			li.red
+				p.opcion
+					a.n(href='#') Movil
+				p.subtext 
+					a.n(href='/') Movistar
+					br/
+					a.n(href='/') Claro
+					br/
+					a.n(href='/') Tigo 
+					
+			li.blue
+				p.opcion
+					a.n(href='#') Saldo
+				p.subtext 
+					a.n(href='/') Ahorros
+					br/
+					a.n(href='/') Corriente
+			
+			li.purple
+				p.opcion
+					a.n(href='#') Registro
+				p.subtext 
+					a.n(href='/registro') Usuario Nuevo
+					br
+					a.n(href='/buscar') Buscar Usuario
+block contenido
+	

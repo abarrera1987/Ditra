@@ -1,0 +1,13 @@
+extends layout
+block content
+ include header
+ block contenido
+  h1.titulo hola a todos como estan soy el buscador
+  article#forbus
+   form(method="post",action="/usuarioli")
+     labe#cedu(for="cedula") Cedula   
+     input(type="text",name="cedula",required,autofocus)
+     br
+     input#btnReg(type="submit",value="Buscar")     
+
+ include footer

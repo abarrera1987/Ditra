@@ -1,0 +1,12 @@
+extends layout
+block content
+ include header
+ block contenido
+  if(usuarios) 
+   each usuario in usuarios
+    p #{usuario.nombre}
+    p #{usuario.cedula}
+    p #{usuario.telefono}
+    p #{usuario.correo}
+    
+ include footer

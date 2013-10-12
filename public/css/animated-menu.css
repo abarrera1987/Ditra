@@ -1,0 +1,48 @@
+body{
+	font-family:"Lucida Grande", arial, sans-serif;
+	background:#F3F3F3;
+}
+
+ul{
+	margin:0;
+	padding:0;
+}
+
+li{
+	width:115px;
+	height:50px;
+	float:left;
+	color:#191919;
+	text-align:center;
+	overflow:hidden;
+}
+
+.n{
+	color:#FFF;
+	text-decoration:none;
+}
+
+p{
+	padding:0px 5px;
+}
+
+	.subtext, .opcion{
+		
+		color: #F60;
+		font-family: 'Volkhov', serif;
+		font-size: 1em;
+
+	}
+	.subtext{
+		padding-top:30px;
+	}
+	.opcion{
+		padding-top: 15px;
+	}
+
+/*Menu Color Classes*/
+.green{background:#6AA63B url('../img/green-item-bg.jpg') top left no-repeat;}
+.yellow{background:#F60 url('../img/yellow-item-bg.jpg') top left no-repeat;}
+.red{background:#D52100 url('../img/red-item-bg.jpg') top left no-repeat;}
+.purple{background:#5122B4 url('../img/purple-item-bg.jpg') top left no-repeat;}
+.blue{background:#0292C0 url('../img/blue-item-bg.jpg') top left no-repeat;}

@@ -1,0 +1,113 @@
+*{
+	border: 0;
+	margin: 0;
+	padding: 0;
+	color: #F60;
+}
+@font-face{
+	font-family: 'Cinzel Decorative', cursive;
+}
+
+header section footer{
+	display: block;
+	margin: 5em;
+}
+
+header, .logos, .nav{
+
+	background: #00024f;
+	display: inline-block;
+	max-width: 100%;
+	vertical-align: middle;	
+
+}
+header img{	
+	padding-left: 1em;
+	width: 35%;
+
+}
+.nav{
+
+	text-align: center;
+	height: 100px;	
+	padding-top: 2em;
+}
+footer{
+	color: #E1380E;
+	font-family: 'Indie Flower', cursive;
+	text-align: center;
+}
+footer .empresa{
+	background: none;
+}
+.empresa{
+	color: #E1380E;
+	font-size: 1.5em;
+}
+.logobanco{
+	opacity: 1;
+	filter:alpha(opacity=10);
+	-ms-transition: all 0.5s ease-in;
+	-moz-transition: all 0.5s ease-in;
+	-o-transition: all 0.5s ease-in;
+	-webkit-transition: all 0.5s ease-in;
+	transition: all 0.5s ease-in;
+}
+.logobanco:hover{
+	opacity: .7;
+	filter:alpha(opacity=8);
+	-ms-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	-webkit-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+}
+.titulo{
+	text-align: center;
+	color: #F60;
+}
+#btnReg{
+	display: block;
+	margin: 0 auto;
+	border-radius: .3em;
+	padding: 2px;
+	box-shadow: 2px 2px 2px 2px #888;
+	display: left;
+}
+#mula{
+	width: 20%;
+	padding: 2em;
+	margin-left: 65em;
+	box-shadow: 3px 0 2.5px 2.5px #888;
+}
+#nombre, #cedula, #telefono, #Email  {
+
+	color: #000000; 
+	
+}
+#mula input[type="text"],#mula label,#mula input[type="email"]
+{
+	display: block;
+}
+#mula input[type="text"],#mula input[type="email"]
+{
+	border: 1px solid #838484;
+	padding-left: 5px;
+	
+}
+@media screen and (min-width: 1081px){
+
+	header h1{
+
+		text-align: left;
+		width: 55%;
+	}
+
+	nav.nav {
+		text-align: right;
+		width: 45%;
+	}
+	header{
+		position: relative;
+	}
+}

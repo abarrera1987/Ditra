@@ -1,0 +1,22 @@
+extends layout
+block content
+ include header
+ block contenido
+   h1.titulo hola a todos como estan soy el registro
+   article#formula
+    div#mula
+     form(method="post",action="/registro/add")
+      labe#nombre(for="nombre") Nombre 		
+      input#nombres(type="text",name="nombre",required,autofocus)
+      br
+      labe#cedula(for="Cedula") Cedula     
+      input#cedula(type="text",name="cedula",required)
+      br
+      labe#telefono(for="Telefono") Telefono	
+      input#telefonos(type="text",name="telefono",required)
+      br
+      labe#Email(for="Email") Email 		
+      input#Emails(type="email",name="correo",required)
+      br
+      input#btnReg(type="submit",value="Registro")	
+   include footer

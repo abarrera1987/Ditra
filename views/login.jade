@@ -1,0 +1,17 @@
+extends layout
+block content
+	include header
+		a#various1(href="#inline1", title="Login") Inline
+			div(style="display: none;")
+				div#inline1
+					div#la
+						form(method="post",action="/registro/add")
+							labe#nomb(for="nombre") Usuario 		
+							input#nomb(type="text",name="nombre",required,autofocus)
+							br
+							labe#cedu(for="Cedula") Contraseña     
+							input#cedu(type="text",name="cedula",required)
+							br
+							input#btnIni(type="submit",value="Iniciar")		
+	
+	include footer

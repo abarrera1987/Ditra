@@ -76,7 +76,7 @@
 }
 
 #fancybox-content {
-	background: #f60;
+	
 	width: 0;
 	height: 0;
 	padding: 0;
@@ -85,6 +85,19 @@
 	overflow: hidden;
 	z-index: 1102;
 	border: 0px solid #fff;
+	background-image: linear-gradient(bottom, rgb(107,107,107) 0%, rgb(194,194,194) 75%);
+	background-image: -o-linear-gradient(bottom, rgb(107,107,107) 0%, rgb(194,194,194) 75%);
+	background-image: -moz-linear-gradient(bottom, rgb(107,107,107) 0%, rgb(194,194,194) 75%);
+	background-image: -webkit-linear-gradient(bottom, rgb(107,107,107) 0%, rgb(194,194,194) 75%);
+	background-image: -ms-linear-gradient(bottom, rgb(107,107,107) 0%, rgb(194,194,194) 75%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(107,107,107)),
+		color-stop(0.75, rgb(194,194,194))
+	);
 }
 
 #fancybox-hide-sel-frame {
@@ -345,12 +358,17 @@
 	
 }
 #btnIni{
+	font-size: 1.1em;
+	color: #000000;
 	display: block;
 	margin: 0 auto;
-	border-radius: .3em;
+	border-radius: .2em;
 	padding: 2px;
-	box-shadow: 2px 2px 2px 2px #888;
+	box-shadow: 2px 2px 2px 2px #000000;
 	display: left;
+}
+#btnIni:hover{
+	color: #2e44b3;
 }
 
 /* IE6 */

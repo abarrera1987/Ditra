@@ -1,11 +1,12 @@
 .dg-container{
 	
 	height: 435px;
-	margin: 2em;
-	z-index: -1;
+	margin: 2em;	
 	position: relative;
+
 }
 .dg-wrapper{
+	z-index: -1;
 	width: 481px;
 	height: 316px;
 	margin: 0 auto;

@@ -37,11 +37,18 @@ app.get('/users', user.list);
 app.get('/registro', routes.registro);
 app.post("/registro/add", function(req,res){
   var nombre = req.body.nombre;
+  var apellido = req.body.apellido;
+  var dia = req.body.dia;
+  var mes = req.body.mes;
+  var anio = req.body.anio;
   var cedula = req.body.cedula;
 	var telefono = req.body.telefono;
 	var email = req.body.correo;
      new Usuario({
         nombre: nombre,
+        dia: dia,
+        mes: mes,
+        anio: anio,
         cedula: cedula,
         telefono: telefono,
         correo: email,
@@ -49,6 +56,15 @@ app.post("/registro/add", function(req,res){
       if(err) res.send("error");
       res.send(docs);
    });
+  var nick = req.body.nick;
+  var contraseña = req.body.contraseña;
+     new Nickname({
+      nick: nick,
+      contraseña: contraseña,
+     }).save(function(err,docs){
+      if(err) res.send("error");
+      res.send(docs);
+     });
    res.redirect('/registro'); 
   });
  

@@ -16,3 +16,6 @@ exports.buscar = function(req, res){
 exports.login = function(req, res){
   res.render('login', { title: 'Digital Transfer' });
 };
+exports.login2 = function(req, res){
+  res.render('login2', { title: 'Digital Transfer' });
+};

@@ -24,7 +24,7 @@ block content
         -for(var i = 1; i<13; i++)
           option #{i}
        labe#anio(for="anio") Año
-       select(type='number',name='anio',required)
+       select(type='number',name='año',required)
         -for(var i = 2014; i>1959; i--)
           option #{i}
       br
@@ -43,14 +43,11 @@ block content
       labe#Email(for="Email") Email 		
       input#Emails(type="email",name="correo",required)
       br
-     article#formula2
-      div#mula2
-       form(method="post", action="/registro/add")
-        labe#nick(for="nick") Usuario
-        input(type="text", name="nick", required)
-        br
-        labe#contra(for="contraseña") Contraseña
-        input(type="password", name="contraseña", required)
-        br
-        input#btnReg(type="submit",value="Registro")
+      labe#nick(for="nick") Usuario
+      input(type="text", name="nick", required)
+      br
+      labe#contra(for="contraseña") Contraseña
+      input(type="password", name="contraseña", required)
+      br
+      input#btnReg(type="submit",value="Registro")
    include footer

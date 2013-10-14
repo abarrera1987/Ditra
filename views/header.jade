@@ -1,6 +1,6 @@
 header
 	h1.logos
-		a.logobanco(href='/')
+		a.logobanco(method='post',href='/')
 			img.logo(src='img/prueba2.png') 
 	nav.nav
 		ul
@@ -12,7 +12,7 @@ header
 						div(style="display: none;")
 							div#inline1
 								div#la
-									form(method="post",action="/registro/add")
+									form(method="post",action="/login/id")
 										labe#nomb(for="usuario") Usuario 		
 										input#nomb(type="text",name="usuario",required,autofocus)
 										br
@@ -24,7 +24,7 @@ header
 				p.opcion
 					a.n(href='#') Transacciones
 				p.subtext 
-					a.n(href='/') Consignación
+					a.n(href='/login2') Consignación
 					br/
 					a.n(href='/') Retiro
 					br/

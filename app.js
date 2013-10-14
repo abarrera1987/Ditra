@@ -24,6 +24,8 @@ app.set('view engine', 'jade');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(express.session({ secret: 'hola' }));
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
@@ -33,6 +35,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 app.get('/', routes.index);
+app.post('/', routes.index);
 app.get('/users', user.list);
 app.get('/registro', routes.registro);
 app.post("/registro/add", function(req,res){
@@ -40,31 +43,29 @@ app.post("/registro/add", function(req,res){
   var apellido = req.body.apellido;
   var dia = req.body.dia;
   var mes = req.body.mes;
-  var anio = req.body.anio;
+  var año = req.body.año;
+  var sexo = req.body.sexo;
   var cedula = req.body.cedula;
 	var telefono = req.body.telefono;
 	var email = req.body.correo;
+  var nick = req.body.nick;
+  var contraseña = req.body.contraseña;
      new Usuario({
         nombre: nombre,
+        apellido: apellido,
         dia: dia,
         mes: mes,
-        anio: anio,
+        año: año,
+        sexo: sexo,
         cedula: cedula,
         telefono: telefono,
         correo: email,
+        nick: nick,
+        contraseña: contraseña,
       }).save(function(err,docs){
       if(err) res.send("error");
-      res.send(docs);
-   });
-  var nick = req.body.nick;
-  var contraseña = req.body.contraseña;
-     new Nickname({
-      nick: nick,
-      contraseña: contraseña,
-     }).save(function(err,docs){
-      if(err) res.send("error");
-      res.send(docs);
-     });
+      res.send(docs);      
+   });   
    res.redirect('/registro'); 
   });
  
@@ -77,9 +78,20 @@ Usuario.findOne({cedula: req.body.cedula }).sort({cedula:"descending"})
   });
 });
 app.get("/login", routes.login);
-app.get("/login/id", function(req, res){
-
-})
+app.post("/index", function(req, res){
+ Usuario.findOne({nick: req.body.nicks, contraseña: req.body.contraseñas } ,function (err, Usuario) {
+    //Se verifica si encontro algun usuario 
+    if (Usuario == null) {
+      //como no encontro ningun usuario re direcciona a login con un mensaje 
+      res.render('/login2',{mensaje: "La contraseña y el usuario que introdujiste no coinciden."});
+    } else{
+      
+       
+    } 
+  });
+ res.render('index'); 
+});
+app.get("/login2", routes.login2);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

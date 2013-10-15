@@ -1,11 +1,11 @@
 extends layout
 block content
- include layout2
+ include header
  block contenido
    
    article#formula
     div#mula
-     form(method="post",action="/index")
+     form(method="post",action="/registro/add")
       labe#nombre(for="nombre") Nombre 		
       input#nombres(type="text",name="nombre",required,autofocus)
       br

@@ -19,6 +19,3 @@ exports.login = function(req, res){
 exports.login2 = function(req, res){
   res.render('login2', { title: 'Digital Transfer' });
 };
-exports.inicio = function(req, res){
-  res.render('inicio', { title: 'Digital Transfer' });
-};

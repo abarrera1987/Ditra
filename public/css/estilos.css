@@ -27,13 +27,11 @@ header{
 		color-stop(0.75, rgb(99,133,255))
 	);
 }
-header{
-	border-radius: .2em;
-	margin: 0 1em 0 1em;
-}
-header, .logos, .nav, #nick-header{
+header, .logos, .nav{
+
 	
-	display: inline-block;	
+	display: inline-block;
+	max-width: 100%;
 	vertical-align: middle;	
 
 }
@@ -42,27 +40,18 @@ header img{
 	width: 31%;
 
 }
-#nick-header{
-	margin: 0 auto;
-	width: 12%;
-	padding-left: 2em;
-}
-.logos{
-	width: 43%;
-}
+
 .nav{
-	width: 37%;
+
 	text-align: center;
-	padding-left: 5em;
-	height: 70px;
+	height: 100px;
 	z-index: 999; 
 	
 }
-
 footer{
 	color: #E1380E;
 	font-family: 'Indie Flower', cursive;
-	
+	padding: .5em;
 	text-align: center;
 }
 footer .empresa{
@@ -185,7 +174,19 @@ select {
 }
 @media screen and (min-width: 1081px){
 
-	
+	header h1{
+
+		text-align: left;
+		width: 55%;
+	}
+
+	nav.nav {
+		text-align: right;
+		width: 45%;
+	}
+	header{
+		position: relative;
+	}
 	
 	
 }

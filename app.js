@@ -38,7 +38,7 @@ app.get('/', routes.index);
 app.post('/', routes.index);
 app.get('/users', user.list);
 app.get('/registro', routes.registro);
-app.post("/registro/add", function(req,res){
+app.post("/index", function(req,res){
   var nombre = req.body.nombre;
   var apellido = req.body.apellido;
   var dia = req.body.dia;
@@ -66,30 +66,60 @@ app.post("/registro/add", function(req,res){
       if(err) res.send("error");
       res.send(docs);      
    });   
-   res.redirect('/registro'); 
+   res.render('index');
   });
  
-app.get('/buscar', routes.buscar);
+app.get('/buscar', function(req, res){
+    if (req.session.miVariable != null) {
+      Usuario.findOne({nick: req.session.miVariable}, function  (err, docs) {
+        res.render('buscar', {users: docs, title: 'buscador'});
+      })
+    } else{
+      res.render('index',{mensaje: "No has iniciado sesion."});
+    };
+   });    
 app.post('/usuarioli', function(req, res){
-Usuario.findOne({cedula: req.body.cedula }).sort({cedula:"descending"})
-          .skip(0).limit(1).execFind(function(err,docs){
-      if(err) res.send(err);
-      res.render("usuarioli",{usuarios: docs});
-  });
+
+  if (req.session.miVariable!=null) {
+        var userQuery = Usuario.findOne({nick: req.session.miVariable});
+        var usuarioQuery  = Usuario.findOne({cedula: req.body.cedula});
+        var resources = {
+         users: userQuery.exec.bind(userQuery),
+         usuarios: usuarioQuery.exec.bind(usuarioQuery) 
+        };
+        async.parallel(resources, function (error, results) {
+          if (error) {
+            res.status(500).send(error);
+            return;
+          }
+          res.render('usuarioli',results );
+        })        
+    } else{
+      res.render('index',{mensaje: "Debes iniciar sesion primero para ingresar.",title:'Inicio'});
+    };    
 });
 app.get("/login", routes.login);
-app.post("/index", function(req, res){
- Usuario.findOne({nick: req.body.nicks, contraseña: req.body.contraseñas } ,function (err, Usuario) {
-    //Se verifica si encontro algun usuario 
-    if (Usuario == null) {
-      //como no encontro ningun usuario re direcciona a login con un mensaje 
-      res.render('/login2',{mensaje: "La contraseña y el usuario que introdujiste no coinciden."});
+app.get('/inicio', function(req, res){
+if (req.session.miVariable != null) {
+      Usuario.findOne({nick: req.session.miVariable}, function  (err, docs) {
+        res.render('inicio', {users: docs, title: 'Inicio'});
+      })
     } else{
-      
-       
+      res.render('index',{mensaje: "No has iniciado sesion."});
+    };
+   });    
+app.post("/inicio", function(req, res){
+ Usuario.findOne({nick: req.body.nicks, contraseña: req.body.contraseñas } ,function (err, usuario) {
+    //Se verifica si encontro algun usuario 
+    if (usuario == null) {
+      //como no encontro ningun usuario re direcciona a login con un mensaje 
+      res.render('index',{mensaje: "La contraseña y el usuario que introdujiste no coinciden."});
+    } else{
+      req.session.miVariable = usuario.nick;
+      res.render('inicio' ,{users: usuario , usua: req.session.loggedIn});
     } 
   });
- res.render('index'); 
+ 
 });
 app.get("/login2", routes.login2);
 

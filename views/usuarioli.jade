@@ -2,7 +2,8 @@ extends layout
 block content
  include header
  block contenido
-  if(usuarios) 
+
+  if(usuarios)    
     p #{usuarios.nombre}
     p #{usuarios.cedula}
     p #{usuarios.telefono}

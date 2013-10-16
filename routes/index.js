@@ -11,7 +11,7 @@ exports.registro = function(req, res){
   res.render('registro', { title: 'Digital Transfer' });
 };
 exports.buscar = function(req, res){
-  res.render('buscar', { title: 'Digital Transfer' });
+  res.render('buscar', { title: 'Buscar Usuario' });
 };
 exports.login = function(req, res){
   res.render('login', { title: 'Digital Transfer' });

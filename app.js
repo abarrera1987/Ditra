@@ -69,18 +69,44 @@ app.post("/index", function(req,res){
    res.render('index');
   });
  
-app.get('/buscar', function(req, res){
+/*app.get('/buscar', function(req, res){
     if (req.session.miVariable != null) {
       Usuario.findOne({nick: req.session.miVariable}, function  (err, docs) {
-        res.render('buscar', {users: docs, title: 'buscador'});
+        res.render('buscar', {users: docs, title: 'Buscar Usuario'});
       })
     } else{
       res.render('index',{mensaje: "No has iniciado sesion."});
     };
-   });    
-app.post('/usuarioli', function(req, res){
-
-  if (req.session.miVariable!=null) {
+   });    */
+app.get('/usuarioli', function(req, res){
+    if (req.session.miVariable!=null) {
+    Usuario.findOne({nick: req.session.miVariable}).exec(function (err, resources) {
+    Usuario.findOne({nick: req.session.miVariable}).exec(function (err, docs) {      
+              res.render("usuarioli", {
+                  usuarios: resources,
+                  users: docs,
+                  title: "Buscar Usuario"            
+     });
+     });
+     });              
+  } else{
+    res.render('index',{mensaje: "Debes iniciar sesion primero para ingresar.",title:'Inicio'});
+  };     
+});
+  /*if (req.session.miVariable!=null) {
+    Usuario.find({}).exec(function (err, resources) {
+    Usuario.findOne({nick: req.session.miVariable}).exec(function (err, docs) {
+        res.render("Buscar", {
+            users: docs,
+            title:"Buscar Usuario"
+     });
+     });
+     });              
+  } else{
+    res.render('index',{mensaje: "Debes iniciar sesion primero para ingresar.",title:'tobi'});
+  };     
+});*/
+  /*if (req.session.miVariable!=null) {
         var userQuery = Usuario.findOne({nick: req.session.miVariable});
         var usuarioQuery  = Usuario.findOne({cedula: req.body.cedula});
         var resources = {
@@ -97,7 +123,7 @@ app.post('/usuarioli', function(req, res){
     } else{
       res.render('index',{mensaje: "Debes iniciar sesion primero para ingresar.",title:'Inicio'});
     };    
-});
+});*/
 app.get("/login", routes.login);
 app.get('/inicio', function(req, res){
 if (req.session.miVariable != null) {

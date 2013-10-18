@@ -89,8 +89,16 @@ app.get('/recarga', function(req, res){
 });
 app.post('/recargas', function(req, res){
   var nusaldo = req.body.carga;
-  var resta;
-  resta :Usuario.saldo - nusaldo
+  Usuario.fidOne({nick: req.session.miVariable},function(err,doc){
+   var saldo = doc.saldo;
+   var nSaldo;
+   if(){
+    
+   }
+   nSaldo = saldo-numsaldo
+   
+  });
+ 
   res.render('recarga');
 
   });

@@ -92,10 +92,16 @@ app.post('/recargas', function(req, res){
   Usuario.fidOne({nick: req.session.miVariable},function(err,doc){
    var saldo = doc.saldo;
    var nSaldo;
-   if(){
+   if(saldo==10000 || saldo<=numsaldo){
+     res.render('recarga',{mensaje:"No posee fondos suficientes para esta operacion"});
+    
+   }else{
+     nSaldo = saldo-numsaldo;
+     doc.saldo =nSaldo;
+     doc.save();
     
    }
-   nSaldo = saldo-numsaldo
+   
    
   });
  

@@ -39,7 +39,7 @@ app.post('/', routes.index);
 app.get('/users', user.list);
 app.get('/registro', routes.registro);
 app.post("/index", function(req,res){
-  var nombre = req.body.nombre;
+  var nombreu = req.body.nombres;
   var apellido = req.body.apellido;
   var dia = req.body.dia;
   var mes = req.body.mes;
@@ -50,8 +50,9 @@ app.post("/index", function(req,res){
   var email = req.body.correo;
   var nick = req.body.nick;
   var contraseña = req.body.contraseña;
+  var saldo = req.body.saldo;
      new Usuario({
-        nombre: nombre,
+        nombre: nombreu,
         apellido: apellido,
         dia: dia,
         mes: mes,
@@ -61,31 +62,24 @@ app.post("/index", function(req,res){
         telefono: telefono,
         correo: email,
         nick: nick,
-        contraseña: contraseña,
+        contraseña: contraseña
+        
       }).save(function(err,docs){
       if(err) res.send("error");
       res.send(docs);      
    });   
    res.render('index');
   });
- 
-/*app.get('/buscar', function(req, res){
-    if (req.session.miVariable != null) {
-      Usuario.findOne({nick: req.session.miVariable}, function  (err, docs) {
-        res.render('buscar', {users: docs, title: 'Buscar Usuario'});
-      })
-    } else{
-      res.render('index',{mensaje: "No has iniciado sesion."});
-    };
-   });    */
-app.get('/usuarioli', function(req, res){
-    if (req.session.miVariable!=null) {
+app.get('/recarga', function(req, res){
+    var recarga = req.body,carga;    
+    if (req.session.miVariable!=null) {        
     Usuario.findOne({nick: req.session.miVariable}).exec(function (err, resources) {
     Usuario.findOne({nick: req.session.miVariable}).exec(function (err, docs) {      
-              res.render("usuarioli", {
+              res.render("recarga", {
                   usuarios: resources,
                   users: docs,
-                  title: "Buscar Usuario"            
+                  title: "Buscar Usuario" 
+
      });
      });
      });              
@@ -93,38 +87,13 @@ app.get('/usuarioli', function(req, res){
     res.render('index',{mensaje: "Debes iniciar sesion primero para ingresar.",title:'Inicio'});
   };     
 });
-  /*if (req.session.miVariable!=null) {
-    Usuario.find({}).exec(function (err, resources) {
-    Usuario.findOne({nick: req.session.miVariable}).exec(function (err, docs) {
-        res.render("Buscar", {
-            users: docs,
-            title:"Buscar Usuario"
-     });
-     });
-     });              
-  } else{
-    res.render('index',{mensaje: "Debes iniciar sesion primero para ingresar.",title:'tobi'});
-  };     
-});*/
-  /*if (req.session.miVariable!=null) {
-        var userQuery = Usuario.findOne({nick: req.session.miVariable});
-        var usuarioQuery  = Usuario.findOne({cedula: req.body.cedula});
-        var resources = {
-         users: userQuery.exec.bind(userQuery),
-         usuarios: usuarioQuery.exec.bind(usuarioQuery) 
-        };
-        async.parallel(resources, function (error, results) {
-          if (error) {
-            res.status(500).send(error);
-            return;
-          }
-          res.render('usuarioli',results );
-        })        
-    } else{
-      res.render('index',{mensaje: "Debes iniciar sesion primero para ingresar.",title:'Inicio'});
-    };    
-});*/
-app.get("/login", routes.login);
+app.post('/recargas', function(req, res){
+  var nusaldo = req.body.carga;
+  var resta;
+  resta :Usuario.saldo - nusaldo
+  res.render('recarga');
+
+  });
 app.get('/inicio', function(req, res){
 if (req.session.miVariable != null) {
       Usuario.findOne({nick: req.session.miVariable}, function  (err, docs) {
@@ -147,8 +116,6 @@ app.post("/inicio", function(req, res){
   });
  
 });
-app.get("/login2", routes.login2);
-
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

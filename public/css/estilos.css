@@ -12,6 +12,9 @@ header section footer{
 	display: block;
 	margin: 5em;
 }
+body{
+	color: #000000;
+}
 header{
 	background-image: linear-gradient(bottom, rgb(26,14,138) 0%, rgb(99,133,255) 75%);
 	background-image: -o-linear-gradient(bottom, rgb(26,14,138) 0%, rgb(99,133,255) 75%);
@@ -43,6 +46,7 @@ header img{
 
 }
 #nick-header{
+	color: #fafafa;
 	margin: 0 auto;
 	width: 12%;
 	padding-left: 2em;
@@ -99,6 +103,39 @@ footer .empresa{
 	width: 59%;
 
 }
+#table{
+	margin: 0 auto;
+	padding: 50px;
+	width: 1200px;
+	height: 452px;
+}
+
+#enca, table, #conte{
+	margin: 1em;
+	padding: 2em;
+	border-radius: .2em;
+	box-shadow: 1px 1px 1px 1px rgba(0,0,0,.2);
+}{
+	border-radius: .2em;	
+	margin: .2em;
+	text-align: center;
+}
+#enca1, #enca2, #enca3, #enca4, #enca5, #enca6, #enca7, #enca8, #conte1, #conte2, #conte3, #conte4, #conte5, #conte6,#conte7, #conte8{
+	margin: 1em;
+	padding: 2em;
+	border: 1px solid #000000;
+	width: 15em;
+	padding: .7em;
+	text-align: center;
+}
+#recarga{
+	margin: 1em;
+	padding: 2em;
+	width: 15em;
+	padding: .7em;
+	text-align: center;
+}
+
 #login{
 	padding: 5.9em;
 }
@@ -182,6 +219,11 @@ select {
 	padding-left: 5px;
 	box-shadow: 0px 1px 3px  rgba(0,0,0,.7);
 	
+}
+#table input[type='number']{
+	border: 1px solid #838484;
+	padding-left: 5px;
+	box-shadow: 0px 1px 3px  rgba(1,1,1,.2);
 }
 @media screen and (min-width: 1081px){
 

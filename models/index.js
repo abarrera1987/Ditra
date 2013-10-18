@@ -14,7 +14,7 @@ var UsuarioSchema = new mongoose.Schema({
 	nick: String,
 	contraseña: String,
 	date: { type: Date, default: Date.now},
-	cuenta: { type: Number, default: "100000"}, 
+	saldo: { type: Number, default: "100000"}, 
 });
 Usuario = mongoose.model("usuarios",UsuarioSchema);
 

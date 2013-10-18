@@ -1,0 +1,41 @@
+extends layout
+block content
+	include header
+	block contenido
+		if(usuarios)
+			section#table
+				table(method="post",action="/recarga")
+					tr#enca
+						th#enca1 Nombre 
+						th#enca2 Apellido 
+						th#enca3 Fecha De Nacimiento 
+						th#enca4 Cedula 
+						th#enca5 Sexo 
+						th#enca6 Telefono 
+						th#enca7 Correo 
+						th#enca8 Saldo
+					tr#conte     
+						td#conte1
+							p #{usuarios.nombre}
+						td#conte2
+							p #{usuarios.apellido}
+						td#conte3	
+							p #{usuarios.dia} / #{usuarios.mes} / #{usuarios.año}
+						td#conte4
+							p #{usuarios.cedula}
+						td#conte5
+							p #{usuarios.sexo}
+						td#conte6	
+							p #{usuarios.telefono}
+						td#conte7
+							p #{usuarios.correo}
+						td#conte8
+							p #{usuarios.saldo}
+				form(method="post", action="/recargas")
+					label#recarga Valor A Recargar: 
+					input(type="text", name='carga', placeholder="Valor",required,autofocus)
+					input(type="submit", value='Recargar')
+			section#relleno
+
+    
+	include footer
